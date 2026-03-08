@@ -1,0 +1,92 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"strings"
+)
+
+func main() {
+	reqBody := map[string]interface{}{
+		"model":  "llama3.1",
+		"prompt": "Say 'Hello world'",
+		"stream": false,
+	}
+
+	reqJSON, _ := json.Marshal(reqBody)
+
+	resp, err := http.Post("http://localhost:11434/api/generate",
+		"application/json", bytes.NewBuffer(reqJSON))
+	if err != nil {
+		fmt.Printf("Error connecting to Ollama: %v\n", err)
+		fmt.Println("Make sure Ollama is running: ollama serve")
+		return
+	}
+	defer resp.Body.Close()
+
+	var result map[string]interface{}
+	json.NewDecoder(resp.Body).Decode(&result)
+
+	if response, ok := result["response"].(string); ok {
+		fmt.Printf("Ollama response: %s\n", strings.TrimSpace(response))
+	} else {
+		fmt.Println("No response from Ollama")
+	}
+}
+
+
+
+
+// ======================================
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	// Test with a simple incident
+	testIncident := map[string]interface{}{
+		"short_description": "Server is not responding",
+		"long_description":  "The web server stopped responding to HTTP requests at 2:30 PM",
+		"close_notes":       "Restarted the Apache service",
+		"service_names":     "Web Hosting",
+		"tribe":             "Infrastructure Team",
+	}
+
+	prompt := `You are an AI assistant that analyzes ServiceNow incident records.
+
+I will provide you a JSON array of incidents. Each incident contains the following fields:
+- number
+- short_description
+- created_by
+- tribe
+- severity
+- close_notes
+- status
+- long_description
+- regions
+- service_names
+
+Using ONLY the information available in these fields, generate a JSON array where each element has the structure:
+
+{
+  "Symptom": "An observable system condition derived only from short_description or long_description.",
+  "Incident": "A summarized description of the incident using all relevant fields from the input.",
+  "Root Cause": "The technical cause of the issue, only if it is explicitly mentioned in the short_description and long_description or close_notes.",
+  "Fix": "The remediation steps taken, only if mentioned in close_notes or long_description.",
+  "Service Impacted": "The service or component impacted,short_description, derived strictly from service_names or tribe."
+}
+
+Rules:
+1. Do NOT assume or invent any information not present in the JSON fields.
+2. If a field cannot be determined from the given data, set it to an empty string "".
+3. The output must be ONLY the JSON array, with no explanations or additional text.
+4. Keep all extracted information concise and factual.` + fmt.Sprintf("%v", testIncident)
+
+	fmt.Println("Prompt:", prompt)
+
+	// Try this prompt manually with Ollama first
+}

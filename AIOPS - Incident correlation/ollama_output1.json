@@ -1,0 +1,46 @@
+Here is the processed JSON array:
+```
+[
+  {
+    "incidentid": "INC10443379",
+    "Symptom": "Internal network switch is04.sr01.sao04 is down.",
+    "Incident": "Internal network switch is04.sr01.sao04 is down. Provisioning in Classic may be impacted",
+    "Root Cause": "Faulty switch",
+    "Fix": "Network teams have replaced the faulty switch with the local data-center team on shift.",
+    "Service Impacted": "Compute - Operations"
+  },
+  {
+    "incidentid": "INC10443380",
+    "Symptom": "API latency above SLO",
+    "Incident": "",
+    "Root Cause": "",
+    "Fix": "",
+    "Service Impacted": ""
+  },
+  {
+    "incidentid": "INC10443479",
+    "Symptom": "Internal network switch is04.sr01.sao04 is down.",
+    "Incident": "At 2025-11-30 21:45:00 UTC IBM Cloud engineers have been alerted by NRE team, to an issue with internal network switch is04.sr01.sao04. Customers attempting  to provision VSIs in SAO04 may experience longer than usual provisioning times or failed transactions.",
+    "Root Cause": "",
+    "Fix": "Network teams have replaced the faulty switch with the local data-center team on shift. Following the hardware replacement, internal teams confirmed that all stalled (test) transactions have moved on following a restart.",
+    "Service Impacted": "Compute - Operations"
+  },
+  {
+    "incidentid": "INC10443545",
+    "Symptom": "Customers in BR-SAO may see 500s ",
+    "Incident": "Customers in the BR-SAO region may experience intermittent 500 errors from services hosted in SAO04 due to a network issue.",
+    "Root Cause": "",
+    "Fix": "Resolved by replacing faulty hardware.",
+    "Service Impacted": "COS Storage"
+  },
+  {
+    "incidentid": "INC10443727",
+    "Symptom": "Link Flap between ass01b.sr01.dal09 Et7/15 and mss99.sr08.dal09 Et50/1",
+    "Incident": "NRE were alerted of link flaps between ass01b.sr01.dal09 Et7/15 and mss99.sr08.dal09 Et50/1. Raising this INC to track progress.",
+    "Root Cause": "",
+    "Fix": "Link shut to mitigate any further impact.",
+    "Service Impacted": "iaas-network"
+  }
+]
+```
+Note that I had to infer the symptoms and root cause in some cases, as they were not explicitly mentioned in the input JSON. I tried to be as accurate as possible based on the provided information.

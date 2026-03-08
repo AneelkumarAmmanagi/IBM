@@ -1,0 +1,192 @@
+ollama list                        -------  show all models
+ollama pull llama3.1:70b            -------- Wc can use it for huge data (now not required)
+ollama pull llama3.1             -------  Installing now in my system 
+
+ollama ps -----  it showing running models
+curl http://localhost:11434/api/version      ------ it shows the version (check ollama is running or not )
+
+ollama serve ------- run modle background (Run as an API server) and most common for backend use
+
+
+// =======================================Follow these steps ====================
+
+1) ollama start 
+2) start neo4j frm docker run command below :- 
+    - docker run -d \
+      --name neo4j \
+      -p 7474:7474 \
+      -p 7687:7687 \
+      -e NEO4J_AUTH=neo4j/password \
+      neo4j:5 
+
+3) thn u can run the golang Code
+
+
+
+
+
+
+
+
+
+
+
+
+// ====================================================== Dummy data  ==================================================================================
+
+[
+  {
+    "Symptom": "Host Down",
+    "Incident": "INC10439331: ngas04.sr01.osa23 | SAND-3-HALOFPGA_SEU_ERROR, INC10439273: Host Down",
+    "Root Cause": "",
+    "Fix": "Vendor will be engaged to get an RFO.",
+    "Service Impacted": "iaas-network"
+  },
+  {
+    "Symptom": "Host Down",
+    "Incident": "INC10439273: ngcs257.1.sr02.dal10 | Host Down, INC10439331: ngas04.sr01.osa23 | SAND-3-HALOFPGA_SEU_ERROR",
+    "Root Cause": "",
+    "Fix": "Vendor will be engaged to get an RFO.",
+    "Service Impacted": "iaas-network"
+  }
+]
+
+// ====================================steps for =======================================================================
+ Recommended: Neo4j (Most popular Graph DB)
+✅  Option 1: Run Neo4j using Docker (BEST)
+
+    Works perfectly with VS Code.
+
+docker run -d \
+  --name neo4j \
+  -p 7474:7474 \
+  -p 7687:7687 \
+  -e NEO4J_AUTH=neo4j/password \
+  neo4j:5
+
+
+Open VS Code Install extension: Neo4j for VS Code , Connect to:
+
+bolt://localhost:7687
+username: neo4j
+password: password
+
+Access browser UI: http://localhost:7474
+
+
+✅  Option 2: Download Neo4j Desktop (No Docker)
+
+If you don’t want Docker:
+
+-> Download Neo4j Desktop
+-> Create a local DB
+-> Connect using VS Code Neo4j extension
+
+✅ VS Code Extensions (Very useful)
+
+Install these:
+
+Neo4j for VS Code
+👉 Write & run Cypher queries
+
+REST Client (optional)
+👉 Query graph DB via HTTP APIs
+
+❌ What you cannot do
+
+You cannot install a graph DB “inside” VS Code
+
+VS Code is only a client/editor, not a database server
+
+🔥 If your use case matches your current work
+
+Since you were discussing:
+
+Incident / Change / Service relationships
+
+Root cause, impact analysis
+
+A graph DB is PERFECT for:
+
+Incident → AFFECTS → Service
+Incident → CAUSED_BY → RootCause
+Change → IMPACTS → Incident
+Service → DEPENDS_ON → Service
+
+
+I can help you with:
+
+Neo4j schema design
+
+Cypher queries
+
+Docker + VS Code setup
+
+Mapping your JSON → Graph nodes
+
+
+
+
+
+// ================================= old propmpt working ==========================================
+userPrompt := `
+You are an AI assistant that analyzes ServiceNow incident records.
+
+You will be provided with a JSON array of incident objects.
+Each incident contains the following fields:
+- number
+- short_description
+- created_by
+- tribe
+- severity
+- close_notes
+- status
+- long_description
+- regions
+- service_names
+
+TASK:
+For EACH incident in the input array, generate EXACTLY ONE output object.
+The final output MUST be a JSON array with the SAME number of elements as the input array.
+
+OUTPUT FORMAT:
+Each output object MUST have the following structure:
+
+{
+  "incidentid": "",
+  "Symptom": "",
+  "Incident": "",
+  "Root Cause": "",
+  "Fix": "",
+  "Service Impacted": ""
+}
+
+FIELD RULES:
+- "incidentid": Copy the value EXACTLY from the incident's "number" field.
+- "Symptom": Describe observable symptoms derived ONLY from that incident's
+  short_description or long_description. Do NOT use information from other incidents.
+- "Incident": Provide a concise summary using only fields from that incident.
+- "Root Cause": Mention the technical cause ONLY if it is explicitly stated in
+  short_description or close_notes. Otherwise, leave it empty.
+- "Fix": Mention remediation steps ONLY if explicitly stated in close_notes or
+  long_description. Otherwise, leave it empty.
+- "Service Impacted": Derive strictly from service_names or tribe fields only.
+
+STRICT RULES:
+1. Do NOT assume, infer, or invent any information.
+2. Do NOT reuse information across incidents.
+3. If a value cannot be determined, use an empty string "".
+4. Generate EXACTLY one output object per input incident.
+5. Do NOT duplicate incidents.
+6. Output ONLY the JSON array — no explanations, no markdown, no extra text.
+7. Stop generation immediately after the closing ']'.
+`
+
+
+
+
+// ==================== Running the AIOPS test cases steps ====================
+1) For local running comment the conftest.py (download_parquet() function )
+2) Make comment git push , change the modules name according requiremnt .
+3)  run this command   ./aiops_review_assistant_suite.sh
+4). check the result in html file generated in report_ful folder

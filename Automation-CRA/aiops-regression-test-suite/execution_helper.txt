@@ -1,0 +1,25 @@
+### Steps to Follow to Trigger the Execution ####
+1. Clone the repo:
+git clone https://<ibm_userid>:<git-token>@github.ibm.com/Assistant/aiops-regression-test-suite.git
+2. Create .env file with token & secret manager's credentials
+3. Start the run:
+source ./aiops_regression.sh
+
+
+#### Things to Know to Add a Newer Test Case ####
+1. Each module's test cases are captured under each file. Pick the right file:
+    - test_functional_impacted_account.py --> Impacted Account Module
+    - test_functional_incident_information.py --> Incident Information Module
+2. Move to the end of the file and create a definition.
+3. The definition name should have the prefix test_.
+Example of a test definition:
+def test_new_functionality():
+    # test code here
+    pass
+
+
+#### Things to Know to Add a Newer Module ####
+1. Create a file with the prefix test_functional_.
+2. At the top of each test case, add a marker with the module name (refer to existing modules).
+    - Example: @pytest.mark.module_name
+3. Add the module name to the modules_list variable in the aiops_regression.sh file.

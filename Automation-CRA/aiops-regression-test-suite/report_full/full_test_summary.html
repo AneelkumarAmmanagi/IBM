@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AIOps Full Test Summary</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>AIOps Full Test Summary</h1>
+  <table id="test-summary-table">
+    <thead>
+      <tr>
+        <th>Log</th>
+        <th>Pass</th>
+        <th>Fail</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody id="test-summary-body">
+    </tbody>
+  </table>
+  <script>
+    // Get the table body element
+    const tableBody = document.getElementById('test-summary-body');
+
+    // Define the GitHub repository and folder path
+    const repoOwner = 'Assistant';
+    const repoName = 'aiops-regression-test-suite';
+    const branch = 'main';
+    const folderPath = 'report_full';
+    const token = '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';
+
+    const headers = {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json'
+    };
+
+    // Fetch the files in the folder using the GitHub API
+    fetch(`https://api.github.ibm.com/repos/${repoOwner}/${repoName}/contents/${folderPath}?ref=${branch}`, { headers })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        const files = data.filter((file) => file.type === 'file' && file.name.endsWith('.html') && file.name.includes('aiops_regression'))
+          .sort((a, b) => {
+            const dateA = a.name.match(/_(\d{8})_(\d{6})/);
+            const dateB = b.name.match(/_(\d{8})_(\d{6})/);
+            const timestampA = new Date(`${dateA[1].slice(0, 4)}-${dateA[1].slice(4, 6)}-${dateA[1].slice(6, 8)}T${dateA[2].slice(0, 2)}:${dateA[2].slice(2, 4)}:${dateA[2].slice(4, 6)}`).getTime();
+            const timestampB = new Date(`${dateB[1].slice(0, 4)}-${dateB[1].slice(4, 6)}-${dateB[1].slice(6, 8)}T${dateB[2].slice(0, 2)}:${dateB[2].slice(2, 4)}:${dateB[2].slice(4, 6)}`).getTime();
+            return timestampB - timestampA;
+            return nameB.localeCompare(nameA); // Sort in descending order
+          })
+          .slice(0, 10); // Get the latest 10 files
+        console.log(files);
+        // Loop through the files and extract data
+        files.forEach((file) => {
+          fetch(`https://api.github.ibm.com/repos/${repoOwner}/${repoName}/contents/${folderPath}/${file.name}?ref=${branch}`, { 
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Accept': 'application/vnd.github.raw'
+            }
+          })
+            .then((response) => response.text())
+            .then((html) => {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              const logName = file.name;
+              const passCount = doc.querySelector('.passed') ? doc.querySelector('.passed').textContent : 'N/A';
+              const failCount = doc.querySelector('.failed') ? doc.querySelector('.failed').textContent : 'N/A';
+
+              // Create a table row
+              const row = document.createElement('tr');
+              row.innerHTML = `
+                <td>${logName}</td>
+                <td>${passCount}</td>
+                <td>${failCount}</td>
+                <td><a href="https://pages.github.ibm.com/${repoOwner}/${repoName}/${folderPath}/${file.name}">Link</a></td>
+              `;
+
+              // Add the row to the table body
+              tableBody.appendChild(row);
+            });
+        });
+      })
+      .catch((error) => console.error('Error:', error));
+  </script>
+</body>
+</html>

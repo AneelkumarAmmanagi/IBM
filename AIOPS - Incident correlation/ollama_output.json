@@ -1,0 +1,82 @@
+[
+  {
+    "Fix": "",
+    "Incident": "Device reloaded, engaged juniper and Direct link team to check further.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Device reloaded",
+    "incidentid": "INC10442527"
+  },
+  {
+    "Fix": "",
+    "Incident": "Switch came up after reboot",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Strata agents repeatedly crashing due to Fatal Parity errors in Switching ASIC",
+    "incidentid": "INC10442756"
+  },
+  {
+    "Fix": "",
+    "Incident": "Link shut to mitigate any further impact. Will proceed to do Layer1 troubleshooting to resolve any issues with the link before adding it back to service.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Link Flap",
+    "incidentid": "INC10443070"
+  },
+  {
+    "Fix": "",
+    "Incident": "Failure Info: VM provision failed: VM is in starting state: Zone: zone2 Incident Time: 2025-11-30T21:48:11Z VM ID: 02u7_a13b1369-2537-4b13-a113-1407a880670d Request ID: ffffffff-1111-4d25-8500-f462a59353ec Job Thread ID: 96df07ff-d4d6-4184-b7c5-9d9c41fd11b5 Region: br-sao Infrastructure: Prod1 Job Timestamp: 2025-11-30T21:48:11+00:00 ",
+    "Root Cause": "is-vpc VSI Issue Vsi stuck in Deleting",
+    "Service Impacted": "is-vpc",
+    "Symptom": "VM provision failed: VM is in starting state",
+    "incidentid": "INC10443161"
+  },
+  {
+    "Fix": "",
+    "Incident": "if01d.sao04 | Host Down",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Host Down",
+    "incidentid": "INC10443172"
+  },
+  {
+    "Fix": "NRE has worked with datacenter staff to replace the faulty hardware with spare hardware. An RMA case has been initiated to replenish the failed hardware.",
+    "Incident": "Internal switch is04.sr01.sao04 is down. As of 21:45 UTC 30 November 2025, Network Specialists are investigating an internal switch that services provision servers in SAO04 Datacenter. Customer may experience delays in provisions while Networking and Datacenter staff work on restoring the internal switch.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Internal switch is04.sr01.sao04 has gone down.",
+    "incidentid": "INC10443177"
+  },
+  {
+    "Fix": "",
+    "Incident": "Internal network switch is04.sr01.sao04 is down. Impacted Env(s): Sao Paulo (br-sao) REGION Cause Code: is-vpc pod failures packet loss",
+    "Root Cause": "is-vpc pod failures packet loss",
+    "Service Impacted": "is-vpc",
+    "Symptom": "coredns pod is experiencing an issue on the control node. The pod may be running, but the node may not.",
+    "incidentid": "INC10443305"
+  },
+  {
+    "Fix": "IaaS Core (NRE) worked with DCOPS to replace the faulty switch. All stalled transactions (test) moved on after manual restart.",
+    "Incident": "Customers in the BR-SAO region may experience intermittent 500 errors from services hosted in SAO04 due to a network issue.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-compute-general",
+    "Symptom": "Internal network switch is04.sr01.sao04 is down. Customers attempting to provision VSIs in SAO04 may experience longer than usual provisioning times or failed transactions.",
+    "incidentid": "INC10443479"
+  },
+  {
+    "Fix": "",
+    "Incident": "Customers in the BR-SAO region may experience intermittent 500 errors from services hosted in SAO04 due to a network issue.",
+    "Root Cause": "",
+    "Service Impacted": "cloud-object-storage",
+    "Symptom": "Customers in BR-SAO may see 500s ",
+    "incidentid": "INC10443545"
+  },
+  {
+    "Fix": "Link shut to mitigate any further impact. Will proceed to do Layer1 troubleshooting to resolve any issues with the link before adding it back to service.",
+    "Incident": "NRE were alerted of link flaps between ass01b.sr01.dal09 Et7/15 \u003c--\u003e mss99.sr08.dal09 Et50/1.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "ass01b.sr01.dal09 Et7/15 \u003c--\u003e mss99.sr08.dal09 Et50/1 | Link Flap",
+    "incidentid": "INC10443727"
+  }
+]

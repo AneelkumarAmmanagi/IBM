@@ -1,0 +1,162 @@
+[
+  {
+    "Fix": "",
+    "Incident": "Ticket Created By JORGE DE GRANDES (IaaS CORE) - ngcs257.1.sr02.dal10 | Host Down",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Host Down",
+    "incidentid": "INC10439273"
+  },
+  {
+    "Fix": "",
+    "Incident": "Ticket Created By JORGE DE GRANDES (IaaS CORE) - ngas04.sr01.osa23 | SAND-3-HALOFPGA_SEU_ERROR",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "SAND-3-HALOFPGA_SEU_ERROR",
+    "incidentid": "INC10439331"
+  },
+  {
+    "Fix": "vendor engagement for corrective actions",
+    "Incident": "Switch had an hardware error and vendor was engaged for corrective actions.",
+    "Root Cause": "hardware error",
+    "Service Impacted": "iaas-network",
+    "Symptom": "SAND-3-HALOFPGA_SEU_ERROR",
+    "incidentid": "INC10439332"
+  },
+  {
+    "Fix": "",
+    "Incident": "Ticket Created By JORGE DE GRANDES (IaaS CORE) - mss01.sr01.tok04 | Host Down",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Host Down",
+    "incidentid": "INC10439572"
+  },
+  {
+    "Fix": "",
+    "Incident": "Site Unattended - Monitored Remotely - Location: Dal14, Ensuing shift coverage at Dal14 for the day shift from 12:00-18:00 UTC (0600-1200 CST).",
+    "Root Cause": "",
+    "Service Impacted": "iaas-dc-hwsupport",
+    "Symptom": "Onsite Resource Availability - Team Coverage Withdrawn (Days) - DAL14",
+    "incidentid": "INC10439898"
+  },
+  {
+    "Fix": "Will proceed to do Layer1 troubleshooting to resolve any issues with the link before adding it back to service.",
+    "Incident": "Ticket Created By JORGE DE GRANDES (IaaS CORE) https://github.ibm.com/IaaS-NRE/nreincidents/issues/19659",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Link Flap between Et50/1 and Et11/1",
+    "incidentid": "INC10440126"
+  },
+  {
+    "Fix": "Copied script to node compute, edge, master, control, dpu, -hostdpu; Not able to execute the script on the node",
+    "Incident": "physical port validation found ports down on the nodes",
+    "Root Cause": "",
+    "Service Impacted": "is-sdn",
+    "Symptom": "Physical port validation found ports down on the nodes",
+    "incidentid": "INC10440182"
+  },
+  {
+    "Fix": "Link shut to mitigate any further impact. Will proceed to do Layer1 troubleshooting to resolve any issues with the link before adding it back to service.",
+    "Incident": "NRE were alerted of link between fas19a.sr02.dal12 Et2/1 \u003c--\u003e fcs367b.sr02.dal12 Et49/1 going down.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Link between Et2/1 and Et49/1 going down",
+    "incidentid": "INC10440960"
+  },
+  {
+    "Fix": "",
+    "Incident": "console01.sr08.dal09 | Host down",
+    "Root Cause": "",
+    "Service Impacted": "Network - Underlay",
+    "Symptom": "",
+    "incidentid": "INC10441783"
+  },
+  {
+    "Fix": "Link came up by itself. No impact as it is just one link in the bundle and bundle did not go down. Monitoring",
+    "Incident": "NRE were alerted of link flaps between cbs01.eq01.mad01 et-0/0/18 \u003c--\u003e cbs02.dr01.mad03 et-2/0/17.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Link flaps between Et-0/0/18 and Et-2/0/17",
+    "incidentid": "INC10442451"
+  },
+  {
+    "Fix": "Device reloaded",
+    "Incident": "Device reloaded, engaged juniper and Direct link team to check further.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Device reloaded",
+    "incidentid": "INC10442527"
+  },
+  {
+    "Fix": "",
+    "Incident": "Switch came up after reboot",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Strata agents repeatedly crashing due to Fatal Parity errors in Switching ASIC",
+    "incidentid": "INC10442756"
+  },
+  {
+    "Fix": "Link shut to mitigate any further impact",
+    "Incident": "NRE were alerted of link flaps between fcs36a.sr01.wdc06 Et52/1 \u003c--\u003e fcs36b.sr01.wdc06 Et52/1. Raising this INC to track progress.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Link Flap",
+    "incidentid": "INC10443070"
+  },
+  {
+    "Fix": "",
+    "Incident": "Failure Info: VM provision failed: VM is in starting state: Zone: zone2 Incident Time: 2025-11-30T21:48:11Z VM ID: 02u7_a13b1369-2537-4b13-a113-1407a880670d Request ID: ffffffff-1111-4d25-8500-f462a59353ec Job Thread ID: 96df07ff-d4d6-4184-b7c5-9d9c41fd11b5 Region: br-sao Infrastructure: Prod1 Job Timestamp: 2025-11-30T21:48:11+00:00",
+    "Root Cause": "",
+    "Service Impacted": "is-vpc",
+    "Symptom": "VM provision failed: VM is in starting state:",
+    "incidentid": "INC10443161"
+  },
+  {
+    "Fix": "",
+    "Incident": "if01d.sao04 | Host Down",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Host Down",
+    "incidentid": "INC10443172"
+  },
+  {
+    "Fix": "NRE has worked with datacenter staff to replace the faulty hardware with spare hardware. An RMA case has been initiated to replenish the failed hardware.",
+    "Incident": "Network Specialists are investigating an internal switch that services provision servers in SAO04 Datacenter. Customer may experience delays in provisions while Networking and Datacenter staff work on restoring the internal switch.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Internal switch is04.sr01.sao04 has gone down.",
+    "incidentid": "INC10443177"
+  },
+  {
+    "Fix": "",
+    "Incident": "Impacted Env(s): Sao Paulo (br-sao) REGION. IPOps SME Escalated: Reason of escalation to Service Team: Cause Code: is-vpc pod failures packet loss.",
+    "Root Cause": "is-vpc pod failures packet loss",
+    "Service Impacted": "is-vpc",
+    "Symptom": "coredns pod is experiencing an issue on the control node. The pod maybe running, but the node may not.",
+    "incidentid": "INC10443305"
+  },
+  {
+    "Fix": "IaaS Core (NRE) worked with DCOPS to replace the faulty switch. All stalled transactions (test) moved on after manual restart.",
+    "Incident": "IBM Cloud engineers have been alerted by NRE team, to an issue with internal network switch is04.sr01.sao04.",
+    "Root Cause": "",
+    "Service Impacted": "iaas-compute-general",
+    "Symptom": "Internal network switch is04.sr01.sao04 is down. Customers attempting to provision VSIs in SAO04 may experience longer than usual provisioning times or failed transactions.",
+    "incidentid": "INC10443479"
+  },
+  {
+    "Fix": "",
+    "Incident": "",
+    "Root Cause": "",
+    "Service Impacted": "cloud-object-storage",
+    "Symptom": "Customers in BR-SAO region may experience intermittent 500 errors from services hosted in SAO04 due to a network issue.",
+    "incidentid": "INC10443545"
+  },
+  {
+    "Fix": "Will proceed to do Layer1 troubleshooting to resolve any issues with the link before adding it back to service.",
+    "Incident": "",
+    "Root Cause": "",
+    "Service Impacted": "iaas-network",
+    "Symptom": "Link flaps between ass01b.sr01.dal09 Et7/15 \u003c-\u003e mss99.sr08.dal09 Et50/1.",
+    "incidentid": "INC10443727"
+  }
+]

@@ -1,0 +1,76 @@
+# endpoint ui constants
+var_endpoint_ui: 'https://resolution-assistant.1v4196emgfoq.us-south.codeengine.appdomain.cloud/api/'
+var_event_data_ui: 'https://ai-assistants.1ui0wyvyl919.us-east.codeengine.appdomain.cloud/api/'
+var_endpoint_db: 'https://obs-vpc-datasync.1v4196emgfoq.us-south.codeengine.appdomain.cloud/nodes/queryWithDownload'
+var_endpoint_snow: 'https://pnp-api-oss.cloud.ibm.com/v2/incidents/'
+cos_endpoint: 'https://s3.us-east.cloud-object-storage.appdomain.cloud'
+# slack war-room constants
+cos_instance: 'crn:v1:bluemix:public:cloud-object-storage:...'
+cos_api_key: '' # getting from secret
+slack_bucket_name: 'ipops-auto-bucket'
+# change request constants
+cr_bucket_name: 'obs-snow-change-requests-feed-raw'
+cr_cos_api_key: '' # getting from secret'
+inc_bucket_name: 'obs-snow-incidents-feed-raw'
+# ui automation constants
+var_aiops_ui: 'https://resolution-assistant.1v4196emgfoq.us-south.codeengine.appdomain.cloud/'
+var_browser: Chrome
+var_record_video: True
+# cos constant to download parquet files
+parquet_cos_instance: 'crn:v1:bluemix:public:cloud-object-storage:global:a/d0b83e3cadd64cac84fdca158028bb2c:41df023c-c9c9-474c-aefb-2f2f13604b2f::'
+parquet_cos_api_key: '' # getting from secret
+parquet_bucket_name: 'obs-vpc-objects-2rep'
+# constants for static incident with fixed timestamp
+static_parquet_tf: '24:06:2025:05:30'     # parquet file
+static_st_parquet_tf: '24:06:2025:05:19'  # start time of account detail
+static_ed_parquet_tf: '24:06:2025:05:49'  # end time of account detail
+# constants for static incident with custom timerange
+start_parquet_timestamp: '24:06:2025:06:31'
+end_parquet_timestamp: '24:06:2025:07:05'
+# incident input for testing
+var_incident_list: ["INC9825781", "INC10604907", "INC9258603","INC10603689", "INC10574422"]
+# incident summary constants for the incident INC9258603
+INC9258603_executive_summary: "The incident involved pods not being ready in the mzone767 wdc-prod environment, affecting service availability. It was discovered through a monitoring alert at 05:19 UTC on 2025-06-24. The issue was investigated, and the root cause was identified as a node being inaccessible due to a non-functional status light. The DCops team conducted a health check and power-cycled the device, resolving the issue. The incident was mitigated by 07:35 UTC on the same day, with all pods reporting a healthy status afterwards."
+INC9258603_incident_details: "The root cause of the incident was a node being inaccessible due to a non-functional status light. The DCops team power-cycled the device, making it accessible again and allowing the pods to be restarted. The services, systems, or components affected included the VSI provisions in the us-east-2 data center and the pods in the mzone767 environment."
+INC9258603_impact_analysis: "The incident affected users attempting to migrate or restart VSIs in the mzone767 environment, potentially causing failed transactions. The business impact included delayed workflows and potential SLA breaches. However, the exact number of impacted users or transactions is not specified."
+INC9258603_action_resolution: "Immediate mitigation actions included the DCops team conducting a health check on the affected node and power-cycling the device. The root cause fix involved resolving the issue with the node's status light. Temporary workarounds were not necessary, as the issue was fully resolved. The system state is now normal, with all pods reporting healthy status."
+INC9258603_comment_summary: "Major internal comments included updates on the incident's status, discussions on the root cause, and decisions on mitigation steps. External communication highlights included updates to customers on the incident's status."
+INC9258603_recommendation: "Technical fixes or improvements could include enhancing the monitoring and alerting systems to detect similar issues earlier. Process or documentation updates could involve reviewing and refining the incident response procedures. Training or review sessions for teams involved could focus on improving communication and collaboration during incident response."
+INC9258603_timeline: "2025-06-24 05:18 - Outage started 2025-06-24 05:19 - Monitoring alert triggered 2025-06-24 05:25 - AVM OnDuty joined the incident 2025-06-24 05:41 - Incident upgraded to SEV 3 CIE 2025-06-24 05:57 - CORE team identified the issue with the rack rk225 nodes 2025-06-24 06:01 - NRE team assisted in the issue 2025-06-24 06:32 - Device health check started by DCops team 2025-06-24 07:11 - DCops team verified the health of the node and found the status light not working 2025-06-24 07:24 - DCops team power-cycled the device 2025-06-24 07:27 - Node became accessible 2025-06-24 07:30 - CORE team restarted the pods 2025-06-24 07:35 - All pods reported healthy status"
+INC9258603_impact_details: "Monitoring Situation: Unit Type: customer Units Affected: 0 Total Units: 0 Impact Adjustment Factor: 100 Disruption Time (Minutes): 137"
+INC9258603_general_information: "Incident Number: INC9258603 Severity: 3 Created By: ipops@us.ibm.com Tribe: Virtual Private Cloud Was Customer Impacted?: true Caused by Change?: false"
+# similar incident constants for the incident INC9258603
+INC9258603_similar_incidents: ["INC9243570", "INC9287905", "INC9295717", "INC8865290", "INC9109643"]
+INC9258603_resolution_steps: {"Power Cycle Device":"DCops team conducted a health check on the affected node and discovered that the status light was non-functional. Upon request from the NRE team, DCops proceeded to power cycle the device. Following this action, the node became accessible, and all pods are now reporting healthy status",
+                              "Restart Pods": "CORE team restarted the pods one by one after the node was accessible"}
+INC9258603_probable_rootcause: ""
+# service name constants for compute, network & storage
+compute_service_names: ["is-bare-metal-server", "is-cli", "is-compute", "is-dedicated-host", "is-genctl", "is-genctl-etcd", "is-hostos", "is-image", "is-instance", "is-instance-group", "is-key", "is-kube", "is-metadata", "is-placement-group", "is-reservation", "is-rias-deploy", "is-rias-etcd", "is-rias-ingress", "is-vpc-operations", "is-fleet", "is-publication", "iaas-compute-provisioning"]
+network_service_names: ["is-apis", "is-cluster-network", "is-docker", "is-network", "is-network-acl", "is-network-genctl", "is-public-address-range", "is-sdn", "is-virtual-network-interface", "is-endpoint-gateway", "is-floating-ip", "is-load-balancer", "is-load-balancer-private-path", "is-network-ips", "is-private-path-service-gateway", "is-public-gateway", "is-security-group", "is-subnet", "is-vpn", "is-vpn-server", "iaas-firewall-gateway", "iaas-network-oculus", "iaas-network-vpn-ipsec", "iaas-network", "iaas-network-infrastructure", "iaas-network-services", "dns-svcs", "ngdc-network-ncs"]
+storage_service_names: ["is-image-acadia", "is-snapshots-acadia", "is-volume-acadia", "is-kerberos-kdc", "is-backup-policy", "is-share", "is-snapshot", "is-snapshot-consistency-group", "is-volume", "file-storage", "backup-recovery", "cloud-object-storage", "cloud-object-storage-dedicated", "cloud-backup", "block-storage", "ngdc-fileblock-automation", "storage-platform-acadia"]
+tribe_service_mapping: {'Acadia Block and File Storage': ['is-image-acadia', 'is-snapshots-acadia', 'is-volume-acadia', 'storage-platform-acadia'],
+                         'Compute - Development': ['is-bare-metal-server', 'is-cli', 'is-compute', 'is-dedicated-host', 'is-genctl', 'is-genctl-etcd', 'is-hostos', 'is-image', 'is-instance', 'is-instance-group', 'is-key', 'is-kube', 'is-metadata', 'is-placement-group', 'is-razee-deploy', 'is-reservation', 'is-rias-deploy', 'is-rias-etcd', 'is-rias-ingress', 'is-vpc-operations', 'iaas-compute-provisioning'],
+                         'Compute - Operations': ['is-fleet', 'is-publication', 'iaas-compute-general', 'iaas-compute-monitoring'],
+                         'COS Storage': ['is-kerberos-kdc', 'cloud-object-storage', 'cloud-object-storage-dedicated'],
+                         'File Block Storage': ['is-backup-policy', 'is-share', 'is-snapshot', 'is-snapshot-consistency-group', 'is-volume', 'file-storage', 'cloud-backup', 'block-storage', 'ngdc-fileblock-automation'],
+                         'IaaS Observability': ['is-observability-dashboard', 'is-observability-datalake', 'is-observability-logging'],
+                         'Network - Overlay': ['is-apis', 'is-cluster-network', 'is-docker', 'is-network', 'is-network-acl', 'is-network-genctl', 'is-public-address-range', 'is-sdn', 'is-virtual-network-interface'],
+                         'Network - Services': ['is-endpoint-gateway', 'is-floating-ip', 'is-flow-log-collector', 'is-load-balancer', 'is-load-balancer-private-path', 'is-network-ips', 'is-private-path-service-gateway', 'is-public-gateway', 'is-security-group', 'is-subnet', 'is-vpn', 'is-vpn-server', 'iaas-firewall-gateway', 'iaas-network-oculus', 'iaas-network-vpn-ipsec', 'dns-svcs'],
+                         'Network - Underlay': ['iaas-network', 'iaas-network-infrastructure', 'iaas-network-services', 'ngdc-network-underlay', 'ngdc-network-ncs'],
+                         'Virtual Private Cloud': ['is-vpc'],
+                         'Virtual Private Cloud - Security Ops': ['is-vulnerability-scan'],
+                         'Virtual Private Cloud - Undercloud': ['is-management-rack', 'is-platform-integration', 'is-vault', 'is-vpc-infra'],
+                         'VPC - Platform Services': ['is-continuous-deploy', 'is-continuous-integration', 'is-ui'],
+                         'Data Center Operations': ['iaas-cooling', 'iaas-dc-facilities', 'iaas-dc-hwsupport', 'iaas-dc-security', 'iaas-maintenance', 'iaas-power'],
+                         'Fabric': ['iaas-fabric-classic', 'iaas-fabric-ims-core', 'iaas-fabric-ims-database', 'iaas-fabric-ims-devauto', 'iaas-fabric-ims-engine', 'iaas-fabric-ims-identity', 'iaas-fabric-op-auth', 'iaas-fabric-op-cert', 'iaas-fabric-op-dev-tools', 'iaas-fabric-op-dns', 'iaas-internal-systems'],
+                         'Network': ['iaas-network-subnet-rir'],
+                         'Backup and Recovery': ['backup-recovery']}
+ci_name_owner_mapping: [{"owner": "Piyush.Shivam", "ci_names": ["is-image-acadia", "is-snapshots-acadia", "is-volume-acadia", "is-kerberos-kdc", "is-backup-policy", "is-share", "is-snapshot", "is-snapshot-consistency-group", "is-volume", "ngdc-fileblock-automation", "storage-platform-acadia", "file-storage", "backup-recovery", "cloud-object-storage", "cloud-object-storage-dedicated", "cloud-backup", "block-storage"]},
+                         {"owner": "rajeshr", "ci_names": ["is-bare-metal-server", "is-cli", "is-compute", "is-dedicated-host", "is-genctl", "is-genctl-etcd", "is-hostos", "is-image", "is-instance", "is-instance-group", "is-key", "is-kube", "is-metadata", "is-placement-group", "is-razee-deploy", "is-reservation", "is-rias-deploy", "is-rias-etcd", "is-rias-ingress", "is-vpc-operations", "is-fleet", "is-publication", "iaas-compute-provisioning", "iaas-compute-general", "iaas-compute-monitoring"]},
+                         {"owner": "suparna", "ci_names": ["is-flow-log-collector", "is-management-rack", "is-platform-integration", "is-vault", "is-vpc-infra", "is-continuous-deploy", "is-continuous-integration", "is-ui", "iaas-fabric-classic", "iaas-fabric-ims-core", "iaas-fabric-ims-database", "iaas-fabric-ims-devauto", "iaas-fabric-ims-engine", "iaas-fabric-ims-identity", "iaas-fabric-op-auth", "iaas-fabric-op-cert", "iaas-fabric-op-dev-tools", "iaas-fabric-op-dns", "iaas-internal-systems", "ngdc-network-underlay"]},
+                         {"owner": "Apoorva.Karan", "ci_names": ["is-apis", "is-cluster-network", "is-docker", "is-network", "is-network-acl", "is-network-genctl", "is-public-address-range", "is-sdn", "is-virtual-network-interface", "is-endpoint-gateway", "is-floating-ip", "is-load-balancer-private-path", "is-network-ips", "is-private-path-service-gateway", "is-public-gateway", "is-security-group", "is-subnet", "is-vpn", "is-vpn-server", "is-vpc", "iaas-firewall-gateway", "iaas-network-oculus", "iaas-network-vpn-ipsec", "iaas-network", "iaas-network-infrastructure", "iaas-network-services", "dns-svcs", "ngdc-network-ncs"]},
+                         {"owner": "girishdhanak", "ci_names": ["is-observability-dashboard", "is-observability-datalake", "is-observability-logging", "is-vulnerability-scan"]},
+                         {"owner": "Jonathan.Tuil", "ci_names": ["iaas-dc-facilities", "iaas-dc-hwsupport", "iaas-dc-security", "iaas-maintenance", "iaas-power"]}]
+# ========================================== CHANGE REVIEW ASSISTANT =====================================
+assistant_endpoint_ui: "https://ai-assistants.1ui0wyvyl919.us-east.codeengine.appdomain.cloud/api"
+assistant_endpoint_rest: "https://change-risk-processor.1ui0wyvyl919.us-east.codeengine.appdomain.cloud/api"
